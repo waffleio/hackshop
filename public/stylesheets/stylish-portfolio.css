@@ -155,11 +155,23 @@ hr.small {
     position: relative;
     width: 100%;
     height: 100%;
-    background: url(../images/bg.jpg) no-repeat center center scroll;
+
+    /* 
+      Credit: Nathania Johnson, "Raleigh skyline"
+      Modified: Cropped bottom.
+      https://www.flickr.com/photos/14079872@N00/8504987159/in/photolist-bbmA6K-c2QESQ-tKEt1c-aQ1f96-aQ1frX-aQ1aHv-aQ1awX-aQ1aBZ-aQ1fcr-aQ1fnP-sbx5Pt-b51kfi-9NbXEb-5QhuPM-dXyhnD-dXDYg7-awBig4-etyfnL-awBi8H-9eHRax-dXysR2-b9uq32-8SpUBn-dXG5Xb-mtjCpD-bbmA6z-9SxHLe-hrx3A-hrx3B-dXDXDf-dXygSD-b9uoFT-dXDXfw-9SAGww-bLquCX-8EbwTR-5QmLqJ-5QmLaS-hrx3C-ety27J-gjm9Vk-hrzeA-hrDwX-hrDwY-hrzez 
+    */
+    background: url(../images/raleigh-skyline-top.jpg) no-repeat center center scroll;
+
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+.header h1 {
+    margin-top: -100px;
 }
 
 /* About */
@@ -167,69 +179,22 @@ hr.small {
 .about {
     padding: 50px 0;
 }
-
-/* Services */
-
-.services {
-    padding: 50px 0;
-}
-
-.service-item {
-    margin-bottom: 30px;
-}
-
-/* Callout */
-
-.callout {
-    display: table;
+.about img {
     width: 100%;
-    height: 400px;
-    color: #fff;
-    background: url(../images/callout.jpg) no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
 }
 
-/* Portfolio */
+/* Steps */
 
-.portfolio {
+.steps {
     padding: 50px 0;
 }
 
-.portfolio-item {
+.steps h2 {
+    margin-bottom: 50px;
+}
+
+.step-item {
     margin-bottom: 30px;
-}
-
-.img-portfolio {
-    margin: 0 auto;
-}
-
-.img-portfolio:hover {
-    opacity: 0.8;
-}
-
-/* Call to Action */
-
-.call-to-action {
-    padding: 50px 0;
-}
-
-.call-to-action .btn {
-    margin: 10px;
-}
-
-/* Map */
-
-.map {
-    height: 500px;
-}
-
-@media(max-width:768px) {
-    .map {
-        height: 75%;
-    }
 }
 
 /* Footer */
