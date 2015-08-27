@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(require('cookie-session')({ secret: process.env.HACKSHOP_SESSION_SECRET})); // openssl rand -base64 32
 
 passport = require('./passport').init(app);
