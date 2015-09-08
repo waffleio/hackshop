@@ -4,9 +4,14 @@ var _ = require('lodash');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  var user;
+  if(req.user){
+    user = _.pick(req.user, ['accessToken', 'avatar', 'username']);
+    user.credentials = req.user._json.credentials;
+  }
   res.render('index', {
-  	title: 'NC Open Data Hackshop | Waffle.io',
-  	session: _.pick(req.user, ['accessToken', 'avatar', 'username'])
+    title: 'NC Open Data Hackshop | Waffle.io',
+    session: user
   });
 });
 

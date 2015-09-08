@@ -30,7 +30,7 @@
 </section>
 
 <!-- Steps -->
-<section id="steps" class="steps bg-primary">
+<section id="steps" class="steps bg-primary" ng-controller="StepsController as steps">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -38,14 +38,17 @@
                 <div class="row">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a class="btn btn-primary btn-lg" href="/auth/waffle" target="_self" role="button">Login/Signup for Waffle</a>
+                            <div ng-show="steps.session()">Hi {{steps.session().username}}!</div>
+                            <div ng-hide="steps.session()">
+                                <a class="btn btn-primary btn-lg" href="/auth/waffle" target="_self" role="button">Login/Signup for Waffle</a>
+                            </div>
                         </li>
                         <li class="list-group-item">
                             <form class="form-inline">
                                 <div class="form-group">
                                     <label for="project-name">Name Your Project</label>
-                                    <input type="text" class="form-control" id="project-name" placeholder="hackshop">
-                                    <button class="btn btn-default">Create my project</button>
+                                    <input type="text" class="form-control" id="project-name" placeholder="hackshop" ng-model="name">
+                                    <button class="btn btn-default" ng-click="steps.createProject(name)">Create my project</button>
                                 </div>
                             </form>
                         </li>

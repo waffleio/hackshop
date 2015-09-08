@@ -1,0 +1,25 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.log*",
+				"*.sublime*"
+			],
+			"folder_exclude_patterns":
+			[
+				"node_modules",
+				"server/gen",
+				"client/gen",
+				"client/dist"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"translate_tabs_to_spaces": true
+	}
+}
