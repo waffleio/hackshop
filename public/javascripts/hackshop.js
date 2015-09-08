@@ -10,7 +10,7 @@ angular.module('hackshop', [])
         }
 
         this.createProject = function(name) {
-            name = name || 'hackshop-template'
+            name = name || 'hackshop'
             var me = this;
 
             me._getGitHubAccessToken()
@@ -26,19 +26,7 @@ angular.module('hackshop', [])
 
         this.forkHackshop = function(name, accessToken){
             var user = this.session();
-
-            var checkExistanceOfFork = function(){
-                return $http.get({
-                    url: 'https://api.github.com/repos/' + user.username + '/' + name,
-                    params: {
-                        access_token: accessToken
-                    }
-                }).then(function(response){
-                    console.log('success', response);
-                }, function(response){
-                    console.log('err', response);
-                })
-            }
+            var me = this;
 
             return $http({
                 url: 'https://api.github.com/repos/waffleio/hackshop-template/forks',
@@ -48,8 +36,44 @@ angular.module('hackshop', [])
                 }
             })
             .then(function(){
-                return checkExistanceOfFork()
+                return me.checkExistanceOfFork(accessToken);
+            })
+            .then(function(){
+                return me.editFork(name, accessToken);
             });
+        }
+
+        this.editFork = function(name, accessToken){
+            var user = this.session();
+
+            return $http({
+                url: 'https://api.github.com/repos/' + user.username + '/hackshop-template',
+                method: 'patch',
+                params: {
+                    access_token: accessToken
+                },
+                data: {
+                    name: name,
+                    has_issues: true
+                }
+            })
+        }
+
+        this.checkExistanceOfFork = function(accessToken){
+            var user = this.session();
+
+            return $http({
+                url: 'https://api.github.com/repos/' + user.username + '/hackshop-template',
+                method: 'get',
+                params: {
+                    access_token: accessToken
+                }
+            })
+            .then(function(response){
+                console.log('success', response);
+            }, function(response){
+                console.log('err', response);
+            })
         }
 
         this._getGitHubAccessToken = function(){
