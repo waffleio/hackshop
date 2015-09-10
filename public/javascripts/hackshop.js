@@ -10,69 +10,66 @@ angular.module('hackshop', [])
         }
 
         this.createProject = function(name) {
-            name = name || 'hackshop'
             var me = this;
 
             me._getGitHubAccessToken()
             .then(function(githubAccessToken){
                 
-                me.forkHackshop(name, githubAccessToken)
-                .then(function(){
-                    console.log('forked!');
-                });
+                return me.createRepo(name, githubAccessToken)
+                .then(function(repo){
+                    return me.createReadme(repo, githubAccessToken);
+                })
+            })
 
-            });
+            .then(function(){
+                console.log('done!');
+            })
         }
 
-        this.forkHackshop = function(name, accessToken){
+        this.createRepo = function(name, accessToken){
             var user = this.session();
             var me = this;
 
             return $http({
-                url: 'https://api.github.com/repos/waffleio/hackshop-template/forks',
+                url: 'https://api.github.com/user/repos',
                 method: 'post',
-                params: {
-                    access_token: accessToken
-                }
-            })
-            .then(function(){
-                return me.checkExistanceOfFork(accessToken);
-            })
-            .then(function(){
-                return me.editFork(name, accessToken);
-            });
-        }
-
-        this.editFork = function(name, accessToken){
-            var user = this.session();
-
-            return $http({
-                url: 'https://api.github.com/repos/' + user.username + '/hackshop-template',
-                method: 'patch',
                 params: {
                     access_token: accessToken
                 },
                 data: {
-                    name: name,
-                    has_issues: true
-                }
-            })
-        }
-
-        this.checkExistanceOfFork = function(accessToken){
-            var user = this.session();
-
-            return $http({
-                url: 'https://api.github.com/repos/' + user.username + '/hackshop-template',
-                method: 'get',
-                params: {
-                    access_token: accessToken
+                    name: name || 'hackshop',
+                    description: 'Waffle Hackshop: a board in Waffle.io with cards for each action you should do to kickoff a project.',
+                    homepage: 'https://hackshop.waffle.io'
                 }
             })
             .then(function(response){
-                console.log('success', response);
-            }, function(response){
-                console.log('err', response);
+                return response.data;
+            })
+            
+        }
+
+        this.createReadme = function(repo, accessToken){
+
+            return $http.get('/contents/readme')
+            .then(function(response){
+                content = response.data;
+                
+                return $http({
+                    url: repo.url + '/contents/README.md',
+                    method: 'put',
+                    params: {
+                        access_token: accessToken
+                    },
+                    data: {
+                        message: 'Creating README with hackshop instructions',
+                        content: content,
+                        committer: {
+                            name: 'waffle-iron',
+                            email: 'iron@waffle.io'
+                        }
+                    }
+                
+                })
             })
         }
 
