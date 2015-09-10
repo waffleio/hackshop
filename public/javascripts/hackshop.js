@@ -17,7 +17,10 @@ angular.module('hackshop', [])
                 
                 return me.createRepo(name, githubAccessToken)
                 .then(function(repo){
-                    return me.createReadme(repo, githubAccessToken);
+                    return me.createReadme(repo, githubAccessToken)
+                    .then(function(){
+                        return me.createWaffleProject(repo);
+                    })
                 })
             })
 
@@ -53,7 +56,7 @@ angular.module('hackshop', [])
             return $http.get('/contents/readme')
             .then(function(response){
                 content = response.data;
-                
+
                 return $http({
                     url: repo.url + '/contents/README.md',
                     method: 'put',
@@ -71,6 +74,29 @@ angular.module('hackshop', [])
                 
                 })
             })
+        }
+
+        this.createWaffleProject = function(repo){
+            var user = this.session();
+
+            $http({
+                method: 'post',
+                url: 'https://api.waffle.io/projects',
+                params: {
+                    access_token: user.accessToken
+                },
+                data: {
+                    name: repo.full_name
+                }
+            })
+            .then(function(response){
+                return response.data;
+            });
+
+        }
+
+        this.createCards = function(){
+
         }
 
         this._getGitHubAccessToken = function(){
