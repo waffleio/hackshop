@@ -38,21 +38,35 @@
                 <div class="row">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <div ng-show="steps.session()">Hi {{steps.session().username}}!</div>
-                            <div ng-hide="steps.session()">
-                                <a class="btn btn-primary btn-lg" href="/auth/waffle" target="_self" role="button">Login/Signup for Waffle</a>
+                            <h3 class="list-title">1. Login/Signup for Waffle</h3>
+                            <i class="fa fa-check-circle-o checkmark" ng-show="steps.session()"></i>
+                            <div class="list-content">
+                                <div ng-show="steps.session()" class="welcome-text">Hi {{steps.session().username}}, now onto Step 2!</div>
+                                <div ng-hide="steps.session()">
+                                    <a class="btn btn-primary btn-lg" href="/auth/waffle" target="_self" role="button">Login/Signup for Waffle</a>
+                                    <span class="login-text">Hackshop will request permission to access your Waffle account.</span>
+                                </div>
                             </div>
                         </li>
-                        <li class="list-group-item">
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <label for="project-name">Name Your Project</label>
-                                    <input type="text" class="form-control" id="project-name" placeholder="hackshop" ng-model="name">
-                                    <button class="btn btn-default" ng-click="steps.createProject(name)">Create my project</button>
+                        <li class="list-group-item" ng-class="{disabled: !steps.session()}">
+                            <h3 class="list-title">2. Create your Hackshop Project</h3>
+                            <i class="fa fa-check-circle-o checkmark project-checkmark" ng-show="steps.projectCreated"></i>
+                            <div class="list-content" ng-show="steps.session()">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="project-name" class="project-label">{{steps.session().username}} /</label>
+                                        <input type="text" class="form-control" id="project-name" placeholder="name your project" ng-model="name">
+                                        <button class="btn btn-success create-btn" ng-click="steps.createProject(name)">Create my project</button>
+                                        <span class="project-error error" ng-show="steps.failure">Uh oh, your project couldn't be created.<pre style="display: none">{{steps.failure}}</pre></span>
+                                    </div>
+                                </form>
+                                <p class="project-text">Upon project creation, we will create a GitHub repo and a Waffle project with the name you choose. Then will autopopulate your board with issues.</p>
+                                <div class="project-success" ng-show="steps.projectCreated">
+                                    <h3>Woohoo! Your Hackshop Project has been created at <a href="https://waffle.io/{{steps.project.name}}">https://waffle.io/{{steps.project.name}}</a></h3>
                                 </div>
-                            </form>
+                            </div>
                         </li>
-                    </ul>           
+                    </ul>
                 </div>
                 <!-- /.row (nested) -->
             </div>
@@ -69,7 +83,7 @@
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
                 <h4><a href="https://github.com/waffleio/hackshop">An open source project of Waffle.io</a></h4>
-                
+
                 <br>
                 <ul class="list-inline">
                     <li>
