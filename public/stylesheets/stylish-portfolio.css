@@ -167,6 +167,17 @@ i.project-checkmark {
     margin-top: 30px;
 }
 
+i.loading-spinner {
+    color: #337ab7;
+    font-size: 24px;
+    line-height: 33px;
+    margin-left: 10px;
+    vertical-align: bottom;
+    -webkit-animation: fa-spin 1s infinite linear;
+    -moz-animation: fa-spin 1s infinite linear;
+    -ms-animation: fa-spin 1s infinite linear;
+}
+
 .error {
     color: #a94442;
     line-height: 33px;
