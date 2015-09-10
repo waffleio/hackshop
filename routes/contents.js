@@ -13,4 +13,13 @@ router.get('/readme', function(req, res, next){
     });
 });
 
+router.get('/cards', function(req, res, next){
+   fs.readFile(path.join(__dirname, '../', 'content', 'cards.json'), 'utf8', function(err, data){
+        if(err){
+            return next(err);
+        }
+        return res.json(JSON.parse(data));
+    }); 
+});
+
 module.exports = router;
