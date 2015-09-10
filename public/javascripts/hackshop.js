@@ -14,6 +14,7 @@ angular.module('hackshop', [])
             me.failure = undefined;
             me.projectCreated = undefined;
             me.project = undefined;
+            me.loading = true;
 
             me._getGitHubAccessToken()
             .then(function(githubAccessToken){
@@ -32,9 +33,11 @@ angular.module('hackshop', [])
             })
 
             .then(function(){
+                me.loading = false;
                 me.projectCreated = true;
             })
             .catch(function(err){
+                me.loading = false;
                 me.failure = err;
             })
         }
