@@ -11,16 +11,20 @@ angular.module('hackshop', [])
 
         this.createProject = function(name) {
             var me = this;
+            me.failure = undefined;
+            me.projectCreated = undefined;
+            me.project = undefined;
 
             me._getGitHubAccessToken()
             .then(function(githubAccessToken){
-                
+
                 return me.createRepo(name, githubAccessToken)
                 .then(function(repo){
                     return me.createReadme(repo, githubAccessToken)
                     .then(function(){
                         return me.createWaffleProject(repo)
                         .then(function(project){
+                            me.project = project;
                             return me.createCards(project, githubAccessToken);
                         })
                     })
@@ -28,7 +32,10 @@ angular.module('hackshop', [])
             })
 
             .then(function(){
-                console.log('done!');
+                me.projectCreated = true;
+            })
+            .catch(function(err){
+                me.failure = err;
             })
         }
 
@@ -51,7 +58,7 @@ angular.module('hackshop', [])
             .then(function(response){
                 return response.data;
             })
-            
+
         }
 
         this.createReadme = function(repo, accessToken){
@@ -74,7 +81,7 @@ angular.module('hackshop', [])
                             email: 'iron@waffle.io'
                         }
                     }
-                
+
                 })
             })
         }
