@@ -1,14 +1,14 @@
 [
     {
         "title": "Pitch Perfect Practice",
-        "description": "I really wish multiple lines were easy in JSON."
+        "file": "pitch.md"
     },
     {
         "title": "The One Page Business Plan",
-        "description": "1. Here's what a lean canvas is. 2. Make a lean canvas. 3. Oh, but only fill out box 1 and 2 and 3."
+        "file": "lean-canvas.md"
     },
     {
-        "title": "Get out of the building",
-        "description": "No, really, get out of the building. Gotta validate not tabulate before you graduate."
+        "title": "Test Your Guesses",
+        "file": "assumptions.md"
     }
 ]
