@@ -21,7 +21,7 @@ angular.module('hackshop', [])
                     .then(function(){
                         return me.createWaffleProject(repo)
                         .then(function(project){
-                            return me.createCards(project);
+                            return me.createCards(project, githubAccessToken);
                         })
                     })
                 })
@@ -98,7 +98,7 @@ angular.module('hackshop', [])
 
         }
 
-        this.createCards = function(project){
+        this.createCards = function(project, githubAccessToken){
             var user = this.session();
 
             return $http.get('/contents/cards')
@@ -117,7 +117,8 @@ angular.module('hackshop', [])
                                 labels: [],
                                 milestone: null,
                                 source: project.sources[0]._id,
-                                title: card.title    
+                                title: card.title,
+                                body: card.description
                             }
                         }
                     })
