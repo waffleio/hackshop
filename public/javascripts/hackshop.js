@@ -26,7 +26,10 @@ angular.module('hackshop', [])
                         return me.createWaffleProject(repo)
                         .then(function(project){
                             me.project = project;
-                            return me.createCards(project, githubAccessToken);
+                            return me.createCards(project, githubAccessToken)
+                            .then(function(){
+                                return me.orderCards(project);
+                            });
                         })
                         .then(function(){
                             return me.createLabels(repo, githubAccessToken);
@@ -144,6 +147,8 @@ angular.module('hackshop', [])
                         return createCard(card);
                     })
                 })
+
+                return promise;
             })
         }
 
@@ -183,6 +188,52 @@ angular.module('hackshop', [])
 
             return promise;
 
+        }
+
+        this.orderCards = function(project){
+            var user = this.session();
+
+            return $http.get('https://api.waffle.io/' + project.name + '/cards', {
+                params: {
+                    access_token: user.accessToken
+                }
+            })
+            .then(function(response){
+                var cards = response.data;
+                return $http.get('https://api.waffle.io/' + project.name + '/columns', {
+                    params: {
+                        access_token: user.accessToken
+                    }
+                })
+                .then(function(response){
+                    var columns = response.data;
+
+                    var backlogColumn = columns[0];
+
+                    var sortedCards = _.sortBy(cards, function(card){
+                        return card.githubMetadata.number;
+                    })
+                    var columnIssues = _.map(sortedCards, function(sortedCard, index){
+                        return {
+                            rank: index,
+                            id: sortedCard.githubMetadata.id
+                        };
+                    });
+
+                    updatedColumn = _.clone(backlogColumn);
+                    updatedColumn.issues = columnIssues;
+
+                    return $http({
+                        method: 'put',
+                        url: 'https://api.waffle.io/' + project.name + '/columns/' + backlogColumn._id,
+                        params: {
+                            access_token: user.accessToken
+                        },
+                        data: updatedColumn
+                    });
+
+                })
+            })
         }
 
         this._getGitHubAccessToken = function(){
