@@ -1,8 +1,10 @@
+### Test your Guesses
+
 By now you should have:
 - Boxes 1-4 filled out on your lean canvas
 - a paper prototype of a solution
 
-So far we've made a bunch of guesses. What problems ~we~ think exist, what customers ~we~ think have that problem, and what solution ~we~ think would solve it.
+So far we've made a bunch of guesses. What problems *we* think exist, what customers *we* think have that problem, and what solution *we* think would solve it.
 
 Before moving on, we need to test those assumptions with some potential customers.
 

@@ -1,4 +1,4 @@
-### Who is your customer
+### Who's your customer?
 
 ![Dilbert is awesome](https://dl.dropboxusercontent.com/spa/0nz45d6wl4rw5hj/apdp5en1.png)
 

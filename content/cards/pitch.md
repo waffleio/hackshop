@@ -11,8 +11,10 @@ The hook should have us on the edge of our seats, because we're rooting for you.
 
 So tell us how you solved it, and for who. Convince us that it's not just you who thinks this solution is awesome, show us your validation.
 
-### 3. Make an Ask
+### 3. What's next?
 
 What are your next steps? 
 Where are you going to take it? 
 If you've sold us on it, we'll want to help you. Tell us how to help.
+
+![Pitch](https://media1.giphy.com/media/MCQxGH1hNPuqA/200.gif)
