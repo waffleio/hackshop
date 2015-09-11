@@ -1,0 +1,16 @@
+### Form a team of 2 to 5 people
+
+Gather with at least one other person to create a team around an idea or a problem that's interesting to you.
+
+Spend a few minutes asking these questions:
+
+- What's our shared vision?
+  -- Talk about what goal you want to accomplish as a team.
+
+- What's in it for me?
+  -- Talk about each individual's motivation - what do you as an individual want to learn or accomplish?
+
+- What talents do we bring to the table?
+  -- Share a bit of your experience and skills
+
+That's it! Now you have a clear goal for your team to accomplish and you know why each of you are here.

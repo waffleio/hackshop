@@ -2,22 +2,22 @@
     {
         "title": "Team Formation",
         "file": "team-formation.md",
-        "labels": ["sprint 1"]
+        "labels": ["sprint 1", "ready"]
     },
     {
         "title": "What Problem Is Worth Solving?",
         "file": "problem.md",
-        "labels": ["sprint 1"]
+        "labels": ["sprint 1", "ready"]
     },
     {
         "title": "Who's Your Customer?",
         "file": "customer.md",
-        "labels": ["sprint 1"]
+        "labels": ["sprint 1", "ready"]
     },
     {
         "title": "What Promise Are you Making?",
         "file": "promise.md",
-        "labels": ["sprint 1"]
+        "labels": ["sprint 1", "ready"]
     },
     {
         "title": "Brainstorm solutions",
@@ -45,7 +45,7 @@
         "labels": ["sprint 3"]
     },
     {
-        "title": "Define the MVP",
+        "title": "Define the testable MVP",
         "file": "mvp.md",
         "labels": ["sprint 3"]
     },
