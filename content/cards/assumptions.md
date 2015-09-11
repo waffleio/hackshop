@@ -1,9 +1,13 @@
-Have boxes #1, #2, and #3 filled out on your lean canvas? Great.
+By now you should have:
+- Boxes 1-4 filled out on your lean canvas
+- a paper prototype of a solution
 
-The awesome thing is that we know what problem we're solving and for who, the unfortunate thing is that we're just making guesses. Let's "get out of the building" and test these assumptions with some customers.
+So far we've made a bunch of guesses. What problems ~we~ think exist, what customers ~we~ think have that problem, and what solution ~we~ think would solve it.
 
-what's the riskiest assumption?
+Before moving on, we need to test those assumptions with some potential customers.
 
-if we promise this person that we can fix that problem, is that compelling?
+At 10am we'll have a feedback panel to help you do this. Bring your lean canvas and your paper prototype!
 
-feedback panel
+For extra credit, try to find people who fit your customer segment and talk to them. Call your friends, find people on twitter, even pick up the phone and call businesses. The more people you can talk to the better!
+
+![He's good](https://media1.giphy.com/media/6ySFKd72MyV4Q/200.gif)

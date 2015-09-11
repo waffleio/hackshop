@@ -210,8 +210,8 @@ angular.module('hackshop', [])
                 .then(function(response){
                     var columns = response.data;
 
-                    var backlogColumn = columns[0];
-                    var readyColumn = columns[1];
+                    var backlogColumn = _.find(columns, {displayName: 'Backlog'});
+                    var readyColumn = _.find(columns, {displayName: 'Ready'});
 
                     var sortedCards = _.sortBy(cards, function(card){
                         return card.githubMetadata.number;

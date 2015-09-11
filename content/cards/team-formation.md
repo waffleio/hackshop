@@ -21,3 +21,5 @@ Spend a few minutes asking these questions:
     - Be Present - when you're here, you're here, be intentional with your time.
 
 That's it! Now you have a clear goal for your team to accomplish and you know why each of you are here.
+
+![I don't know what to say](https://media2.giphy.com/media/nOod1gZ9Xkum4/200.gif)
