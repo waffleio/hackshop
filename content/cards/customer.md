@@ -2,7 +2,7 @@
 
 ![Dilbert is awesome](https://dl.dropboxusercontent.com/spa/0nz45d6wl4rw5hj/apdp5en1.png)
 
-Fill in Box #2 on your lean canvas.
+Fill in Box 2 on your lean canvas.
 
 Ask yourself:
 
