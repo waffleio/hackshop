@@ -15,7 +15,7 @@ module.exports = {
         baseURL: 'https://waffle.io',
         clientID: process.env.HACKSHOP_WAFFLE_CLIENT_ID,
         clientSecret: process.env.HACKSHOP_WAFFLE_CLIENT_SECRET,
-        callbackURL: (process.env.HACKSHOP_BASE_URL || "http://localhost:3000") + "#steps/auth/waffle/callback",
+        callbackURL: (process.env.HACKSHOP_BASE_URL || "http://localhost:3000") + "/auth/waffle/callback",
         userAgent: 'hackshop.waffle.io'
       }, function(accessToken, refreshToken, profile, done) {
         profile.accessToken = accessToken;
