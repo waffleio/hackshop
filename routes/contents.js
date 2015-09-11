@@ -26,6 +26,7 @@ router.get('/cards', function(req, res, next){
         cards = _.map(cardsMetadata, function(metadata){
             return {
                 title: metadata.title,
+                labels: metadata.labels,
                 description: fs.readFileSync(path.join(__dirname, '../', 'content', 'cards', metadata.file), 'utf8')
             }
         });

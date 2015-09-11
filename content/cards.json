@@ -1,14 +1,62 @@
 [
     {
-        "title": "Pitch Perfect Practice",
-        "file": "pitch.md"
+        "title": "Team Formation",
+        "file": "team-formation.md",
+        "labels": ["sprint 1"]
     },
     {
-        "title": "The One Page Business Plan",
-        "file": "lean-canvas.md"
+        "title": "What Problem Is Worth Solving?",
+        "file": "problem.md",
+        "labels": ["sprint 1"]
+    },
+    {
+        "title": "Who's Your Customer?",
+        "file": "customer.md",
+        "labels": ["sprint 1"]
+    },
+    {
+        "title": "What Promise Are you Making?",
+        "file": "promise.md",
+        "labels": ["sprint 1"]
+    },
+    {
+        "title": "Brainstorm solutions",
+        "file": "ideation.md",
+        "labels": ["sprint 2"]
+    },
+    {
+        "title": "Paper Prototypes",
+        "file": "paper-prototypes.md",
+        "labels": ["sprint 2"]
+    },
+    {
+        "title": "Pick a Solution",
+        "file": "convergence.md",
+        "labels": ["sprint 2"]
     },
     {
         "title": "Test Your Guesses",
-        "file": "assumptions.md"
+        "file": "assumptions.md",
+        "labels": ["sprint 2"]
+    },
+    {
+        "title": "Pivot or Persevere",
+        "file": "pivot-persevere.md",
+        "labels": ["sprint 3"]
+    },
+    {
+        "title": "Define the MVP",
+        "file": "mvp.md",
+        "labels": ["sprint 3"]
+    },
+    {
+        "title": "Build!",
+        "file": "build.md",
+        "labels": ["sprint 4"]
+    },
+    {
+        "title": "Pitch Practice",
+        "file": "pitch.md",
+        "labels": ["sprint 5"]
     }
 ]
