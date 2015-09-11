@@ -3,7 +3,8 @@ angular.module('hackshop', [])
 .controller('StepsController', [
     '$window',
     '$http',
-    function($window, $http){
+    '$q',
+    function($window, $http, $q){
 
         this.session = function(){
             return $window.Application.session;
@@ -21,9 +22,9 @@ angular.module('hackshop', [])
 
                 return me.createRepo(name, githubAccessToken)
                 .then(function(repo){
-                    return me.createReadme(repo, githubAccessToken)
+                    return me.createLabels(repo, githubAccessToken)
                     .then(function(){
-                        return me.createLabels(repo, githubAccessToken);
+                        return me.createReadme(repo, githubAccessToken);
                     })
                     .then(function(){
                         return me.createWaffleProject(repo)
@@ -184,16 +185,11 @@ angular.module('hackshop', [])
                 });
             }
 
-            promise = createLabel(labels.shift());
-
-            _.each(labels, function(label){
-                promise = promise.then(function(){
-                    return createLabel(label);
-                });
+            promises = _.map(labels, function(label){
+                return createLabel(label);
             });
 
-            return promise;
-
+            return $q.all(promises);
         }
 
         this.orderCards = function(project){
