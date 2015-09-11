@@ -74,7 +74,11 @@ angular.module('hackshop', [])
 
         this.createReadme = function(repo, accessToken){
 
-            return $http.get('/contents/readme')
+            return $http.get('/contents/readme', {
+                params: {
+                    repo: repo.full_name
+                }
+            })
             .then(function(response){
                 content = response.data;
 

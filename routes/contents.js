@@ -9,7 +9,11 @@ router.get('/readme', function(req, res, next){
         if(err){
             return next(err);
         }
-        base64 = new Buffer(data).toString('base64');
+
+        readme = data.toString();
+        readme = readme.replace(/:owner\/:repo/g, req.query.repo);
+
+        base64 = new Buffer(readme).toString('base64');
         return res.send(base64);
     });
 });

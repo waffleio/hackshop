@@ -1,9 +1,5 @@
 ## Waffle.io Hackshop
 
-[![Stories in Progress](https://badge.waffle.io/waffleio/waffle.io.svg?label=waffle%3Ain%20progress&title=In%20Progress)](http://waffle.io/waffleio/waffle.io)
+[![Stories Ready to Work On](https://badge.waffle.io/:owner/:repo.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/:owner/:repo)
 
-Follow these steps to kickoff a new project.
-
-1. Open your waffle board: https://waffle.io/:owner/:repo
-2. ...
-3. Profit
+This repo was created from http://hackshop.waffle.io. Use [the Waffle board](https://waffle.io/:owner/:repo) for this repo to always know what to do next for your hackshop project!
