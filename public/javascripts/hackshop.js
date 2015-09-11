@@ -211,6 +211,7 @@ angular.module('hackshop', [])
                     var columns = response.data;
 
                     var backlogColumn = columns[0];
+                    var readyColumn = columns[1];
 
                     var sortedCards = _.sortBy(cards, function(card){
                         return card.githubMetadata.number;
@@ -222,17 +223,31 @@ angular.module('hackshop', [])
                         };
                     });
 
-                    updatedColumn = _.clone(backlogColumn);
-                    updatedColumn.issues = columnIssues;
+                    updatedBacklogColumn = _.clone(backlogColumn);
+                    updatedBacklogColumn.issues = columnIssues;
 
-                    return $http({
+                    updatedReadyColumn = _.clone(readyColumn);
+                    updatedReadyColumn.issues = columnIssues;
+
+                    backlogPromise = $http({
                         method: 'put',
                         url: 'https://api.waffle.io/' + project.name + '/columns/' + backlogColumn._id,
                         params: {
                             access_token: user.accessToken
                         },
-                        data: updatedColumn
-                    });
+                        data: updatedBacklogColumn
+                    })
+
+                    readyPromise = $http({
+                        method: 'put',
+                        url: 'https://api.waffle.io/' + project.name + '/columns/' + readyColumn._id,
+                        params: {
+                            access_token: user.accessToken
+                        },
+                        data: updatedReadyColumn
+                    })
+
+                    return $q.all([backlogPromise, readyPromise]);
 
                 })
             })
