@@ -28,6 +28,9 @@ angular.module('hackshop', [])
                             me.project = project;
                             return me.createCards(project, githubAccessToken);
                         })
+                        .then(function(){
+                            return me.createLabels(repo, githubAccessToken);
+                        })
                     })
                 })
             })
@@ -115,7 +118,7 @@ angular.module('hackshop', [])
             .then(function(response){
                 cards = response.data;
 
-                promises = _.map(cards, function(card){
+                function createCard(card){
                     return $http({
                         method: 'post',
                         url: 'https://api.waffle.io/' + project.name + '/cards',
@@ -124,16 +127,62 @@ angular.module('hackshop', [])
                         },
                         data: {
                             githubMetadata: {
-                                labels: [],
+                                labels: card.labels || [],
                                 milestone: null,
                                 source: project.sources[0]._id,
                                 title: card.title,
                                 body: card.description
                             }
                         }
+                    });
+                }
+
+                promise = createCard(cards.shift());
+
+                _.each(cards, function(card){
+                    promise = promise.then(function(){
+                        return createCard(card);
                     })
                 })
             })
+        }
+
+        this.createLabels = function(repo, githubAccessToken){
+            var labels = [
+                {name: 'experiment', color: '009ACD'},
+                {name: 'build', color: '009800'},
+                {name: 'measure', color: 'eb6420'},
+                {name: 'learn', color: 'cc317c'},
+                {name: 'blocked', color: 'e11d21'},
+                {name: 'validated', color: '5319e7'},
+                {name: 'invalidated', color: 'fbca04'},
+                {name: 'customer dev', color: '0052cc'},
+                {name: 'dev needed', color: 'bfd4f2'},
+                {name: 'design needed', color: 'f7c6c7'}
+            ];
+
+
+            function createLabel(label){
+                return $http({
+                    method: 'post',
+                    url: repo.url + '/labels',
+                    data: label,
+                    params: {
+                        access_token: githubAccessToken
+                    }
+                });
+            }
+
+            promise = createLabel(labels.shift());
+
+            _.each(labels, function(label){
+                promise = promise.then(function(){
+                    return createLabel(label);
+                });
+            });
+
+            return promise;
+
         }
 
         this._getGitHubAccessToken = function(){
