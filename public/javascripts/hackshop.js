@@ -35,7 +35,7 @@ angular.module('hackshop', [])
                                 return me.orderCards(project);
                             });
                         })
-                        
+
                     })
                 })
             })
@@ -156,21 +156,16 @@ angular.module('hackshop', [])
 
         this.createLabels = function(repo, githubAccessToken){
             var labels = [
-                {name: 'experiment', color: '009ACD'},
-                {name: 'build', color: '009800'},
-                {name: 'measure', color: 'eb6420'},
-                {name: 'learn', color: 'cc317c'},
                 {name: 'blocked', color: 'e11d21'},
                 {name: 'validated', color: '5319e7'},
                 {name: 'invalidated', color: 'fbca04'},
-                {name: 'customer dev', color: '0052cc'},
+                {name: 'design needed', color: 'eb6420'},
                 {name: 'dev needed', color: 'bfd4f2'},
-                {name: 'sprint 1', color: '7F618D'},
-                {name: 'sprint 2', color: '7F618D'},
-                {name: 'sprint 3', color: '7F618D'},
-                {name: 'sprint 4', color: '7F618D'},
-                {name: 'sprint 5', color: '7F618D'},
-                {name: 'sprint 6', color: '7F618D'}
+                {name: 'sprint 1', color: 'ddd1e7'},
+                {name: 'sprint 2', color: 'bba3d0'},
+                {name: 'sprint 3', color: '9975b9'},
+                {name: 'sprint 4', color: '7647a2'},
+                {name: 'sprint 5', color: '551a8b'}
             ];
 
 
