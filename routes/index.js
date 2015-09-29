@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     user.credentials = req.user._json.credentials;
   }
   res.render('index', {
-    title: 'NC Open Data Hackshop | Waffle.io',
+    title: 'Hackshop | Waffle.io',
     session: user
   });
 });
