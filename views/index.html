@@ -58,7 +58,7 @@
                                         <input type="text" class="form-control" id="project-name" placeholder="name your project" ng-model="name">
                                         <button class="btn btn-success create-btn" ng-click="steps.createProject(name)" ng-class="{disabled: steps.loading}">Create my project</button>
                                         <i class="fa fa-spinner loading-spinner" ng-show="steps.loading"></i>
-                                        <span class="project-error error" ng-show="steps.failure">Uh oh, your project couldn't be created.<pre style="display: none">{{steps.failure}}</pre></span>
+                                        <span class="project-error error" ng-show="steps.failure">Uh oh, your project couldn't be created.<pre>{{steps.failure | json}}</pre></span>
                                     </div>
                                 </form>
                                 <p class="project-text">Upon project creation, we will create a GitHub repo and a Waffle project with the name you choose. Then will autopopulate your board with issues.</p>
