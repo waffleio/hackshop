@@ -132,7 +132,7 @@ angular.module('hackshop', [])
                         method: 'post',
                         url: 'https://api.waffle.io/' + project.name + '/cards',
                         params: {
-                            access_token: user.accessToken
+                            access_token: waffleAccessToken
                         },
                         data: {
                             githubMetadata: {
@@ -254,23 +254,33 @@ angular.module('hackshop', [])
 
         this._getGitHubAccessToken = function(){
             user = this.session();
-            return $http.get('https://api.waffle.io/providers', {
-                params: {
-                    access_token: user.accessToken
-                }
+            waffleAccessToken = user.accessToken;
+            return $http.get('https://api.waffle.io/user', {
+              params: {
+                access_token: waffleAccessToken
+              }
             })
             .then (function(response){
-                providers = response.data;
-                githubProvider = _.find(providers, function(provider){
-                    return provider.baseUrl === 'https://github.com';
-                });
+              user = response.data;
 
-                githubAccessToken = _.find(user.credentials, function(cred){
-                    return cred.provider === githubProvider._id;
-                }).accessToken;
+              return $http.get('https://api.waffle.io/providers', {
+                  params: {
+                      access_token: waffleAccessToken
+                  }
+              })
+              .then (function(response){
+                  providers = response.data;
+                  githubProvider = _.find(providers, function(provider){
+                      return provider.baseUrl === 'https://github.com';
+                  });
 
-                return githubAccessToken;
-            });
+                  githubAccessToken = _.find(user.credentials, function(cred){
+                      return cred.provider === githubProvider._id;
+                  }).accessToken;
+
+                  return githubAccessToken;
+              });
+          });
         }
     }
 ]);
