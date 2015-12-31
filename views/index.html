@@ -4,14 +4,15 @@
 <header id="top" class="header">
     <div class="text-vertical-center">
         <h1>Hackshop</h1>
-        <h3>Get started on the right foot with a Waffle board custom built for kicking off a new project.</h3>
+        <h3>Guides for Hackathon attendees and organizers to run better hackathons, using lean startup techniques.</h3>
         <br>
-        <a href="#about" class="btn btn-dark btn-lg">Sweet! Tell me more!</a>
+        <button class="btn btn-lg" ng-click="attendee=true; organizer=false;">I'm an attendee</button>
+        <button class="btn btn-lg" ng-click="attendee=false; organizer=true;">I'm an organizer</button>
     </div>
 </header>
 
 <!-- About -->
-<section id="about" class="about">
+<section id="about" class="about" ng-if="attendee">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -30,7 +31,7 @@
 </section>
 
 <!-- Steps -->
-<section id="steps" class="steps bg-primary" ng-controller="StepsController as steps">
+<section id="steps" class="steps bg-primary" ng-controller="StepsController as steps" ng-if="attendee">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
