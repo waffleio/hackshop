@@ -6,8 +6,8 @@
         <h1>Hackshop</h1>
         <h3>Guides for Hackathon attendees and organizers to run better hackathons, using lean startup techniques.</h3>
         <br>
-        <button class="btn btn-lg" ng-click="attendee=true; organizer=false;">I'm an attendee</button>
-        <button class="btn btn-lg" ng-click="attendee=false; organizer=true;">I'm an organizer</button>
+        <a href="#about" class="btn btn-dark btn-lg" ng-click="attendee=true; organizer=false;">I'm an attendee</a>
+        <a href="#about" class="btn btn-dark btn-lg" ng-click="attendee=false; organizer=true;">I'm an organizer</a>
     </div>
 </header>
 
@@ -57,7 +57,7 @@
                                     <div class="form-group">
                                         <label for="project-name" class="project-label">{{steps.session().username}} /</label>
                                         <input type="text" class="form-control" id="project-name" placeholder="name your project" ng-model="name">
-                                        <button class="btn btn-success create-btn" ng-click="steps.createProject(name)" ng-class="{disabled: steps.loading}">Create my project</button>
+                                        <button class="btn btn-success create-btn" ng-click="steps.createProject({name: name, type: 'attendee'})" ng-class="{disabled: steps.loading}">Create my project</button>
                                         <i class="fa fa-spinner loading-spinner" ng-show="steps.loading"></i>
                                         <span class="project-error error" ng-show="steps.failure">Uh oh, your project couldn't be created.<pre>{{steps.failure | json}}</pre></span>
                                     </div>
@@ -65,6 +65,73 @@
                                 <p class="project-text">Upon project creation, we will create a GitHub repo and a Waffle project with the name you choose. Then will autopopulate your board with issues.</p>
                                 <div class="project-success" ng-show="steps.projectCreated">
                                     <h3>Woohoo! Your Hackshop Project has been created at <a href="https://waffle.io/{{steps.project.name}}">https://waffle.io/{{steps.project.name}}</a></h3>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about" ng-if="organizer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>We'll guide you through preparing for your weekend.</h2>
+                <p class="lead">We'll build you a board in Waffle.io with cards for each step you should take to prepare for and facilitate a hackshop.</p>
+            </div>
+
+            <div class="col-lg-12 text-center">
+                <img src="images/board.png"/>
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+
+<!-- Steps -->
+<section id="steps" class="steps bg-primary" ng-controller="StepsController as steps" ng-if="organizer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>It's just 2 steps to get started.</h2>
+                <div class="row">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <h3 class="list-title">1. Login/Signup for Waffle</h3>
+                            <i class="fa fa-check-circle-o checkmark" ng-show="steps.session()"></i>
+                            <div class="list-content">
+                                <div ng-show="steps.session()" class="welcome-text">Hi {{steps.session().username}}, now onto Step 2!</div>
+                                <div ng-hide="steps.session()">
+                                    <a class="btn btn-primary btn-lg" href="/auth/waffle" target="_self" role="button">Login/Signup for Waffle</a>
+                                    <span class="login-text">Hackshop will request permission to access your Waffle account.</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" ng-class="{disabled: !steps.session()}">
+                            <h3 class="list-title">2. Create your Hackshop Project</h3>
+                            <i class="fa fa-check-circle-o checkmark project-checkmark" ng-show="steps.projectCreated"></i>
+                            <div class="list-content" ng-show="steps.session()">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="project-name" class="project-label">{{steps.session().username}} /</label>
+                                        <input type="text" class="form-control" id="project-name" placeholder="name your project" ng-model="name">
+                                        <button class="btn btn-success create-btn" ng-click="steps.createProject({name: name, type: 'organizer'})" ng-class="{disabled: steps.loading}">Create my project</button>
+                                        <i class="fa fa-spinner loading-spinner" ng-show="steps.loading"></i>
+                                        <span class="project-error error" ng-show="steps.failure">Uh oh, your project couldn't be created.<pre>{{steps.failure | json}}</pre></span>
+                                    </div>
+                                </form>
+                                <p class="project-text">Upon project creation, we will create a GitHub repo and a Waffle project with the name you choose. Then will autopopulate your board with issues.</p>
+                                <div class="project-success" ng-show="steps.projectCreated">
+                                    <h3>Woohoo! Your Organizer Guide has been created at <a href="https://waffle.io/{{steps.project.name}}">https://waffle.io/{{steps.project.name}}</a></h3>
                                 </div>
                             </div>
                         </li>

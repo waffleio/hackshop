@@ -19,24 +19,26 @@ router.get('/readme', function(req, res, next){
 });
 
 router.get('/cards', function(req, res, next){
+  var type = req.query.type;
+  console.log(type);
 
-   fs.readFile(path.join(__dirname, '../', 'content', 'cards.json'), 'utf8', function(err, data){
-        if(err){
-            return next(err);
-        }
+  fs.readFile(path.join(__dirname, '../', 'content', 'cards-' + type + '.json'), 'utf8', function(err, data){
+      if(err){
+          return next(err);
+      }
 
-        cardsMetadata = JSON.parse(data);
+      cardsMetadata = JSON.parse(data);
 
-        cards = _.map(cardsMetadata, function(metadata){
-            return {
-                title: metadata.title,
-                labels: metadata.labels,
-                description: fs.readFileSync(path.join(__dirname, '../', 'content', 'cards', metadata.file), 'utf8')
-            }
-        });
+      cards = _.map(cardsMetadata, function(metadata){
+          return {
+              title: metadata.title,
+              labels: metadata.labels,
+              description: fs.readFileSync(path.join(__dirname, '../', 'content', 'cards', type, metadata.file), 'utf8')
+          }
+      });
 
-        return res.json(cards);
-    }); 
+      return res.json(cards);
+  });
 });
 
 module.exports = router;

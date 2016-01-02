@@ -10,7 +10,10 @@ angular.module('hackshop', [])
             return $window.Application.session;
         }
 
-        this.createProject = function(name) {
+        this.createProject = function(options) {
+            var name = options.name;
+            var type = options.type;
+
             var me = this;
             me.failure = undefined;
             me.projectCreated = undefined;
@@ -30,7 +33,7 @@ angular.module('hackshop', [])
                         return me.createWaffleProject(repo)
                         .then(function(project){
                             me.project = project;
-                            return me.createCards(project, githubAccessToken)
+                            return me.createCards(project, githubAccessToken, type)
                             .then(function(){
                                 return me.orderCards(project);
                             });
@@ -120,10 +123,14 @@ angular.module('hackshop', [])
 
         }
 
-        this.createCards = function(project, githubAccessToken){
+        this.createCards = function(project, githubAccessToken, type){
             var user = this.session();
 
-            return $http.get('/contents/cards')
+            return $http.get('/contents/cards', {
+              params: {
+                type: type
+              }
+            })
             .then(function(response){
                 cards = response.data;
 
