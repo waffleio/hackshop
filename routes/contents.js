@@ -20,7 +20,6 @@ router.get('/readme', function(req, res, next){
 
 router.get('/cards', function(req, res, next){
   var type = req.query.type;
-  console.log(type);
 
   fs.readFile(path.join(__dirname, '../', 'content', 'cards-' + type + '.json'), 'utf8', function(err, data){
       if(err){

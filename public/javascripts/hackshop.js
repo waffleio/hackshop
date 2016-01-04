@@ -208,54 +208,31 @@ angular.module('hackshop', [])
             })
             .then(function(response){
                 var cards = response.data;
-                return $http.get('https://api.waffle.io/' + project.name + '/columns', {
-                    params: {
-                        access_token: user.accessToken
-                    }
+
+                var sortedCards = _.sortBy(cards, function(card){
+                    return card.githubMetadata.number;
+                });
+                sortedCards.reverse();
+
+                var promise = $q.when(true);
+
+                _.each(sortedCards, function(card){
+                  card.rank = 'top'
+
+                  promise = promise.then(function(){
+                    return $http({
+                      method: 'put',
+                      url: 'https://api.waffle.io/cards/' + card._id,
+                      params: {
+                          access_token: user.accessToken
+                      },
+                      data: card
+                    })
+                  })
                 })
-                .then(function(response){
-                    var columns = response.data;
 
-                    var backlogColumn = _.find(columns, {displayName: 'Backlog'});
-                    var readyColumn = _.find(columns, {displayName: 'Ready'});
+                return promise;
 
-                    var sortedCards = _.sortBy(cards, function(card){
-                        return card.githubMetadata.number;
-                    })
-                    var columnIssues = _.map(sortedCards, function(sortedCard, index){
-                        return {
-                            rank: index,
-                            id: sortedCard.githubMetadata.id
-                        };
-                    });
-
-                    updatedBacklogColumn = _.clone(backlogColumn);
-                    updatedBacklogColumn.issues = columnIssues;
-
-                    updatedReadyColumn = _.clone(readyColumn);
-                    updatedReadyColumn.issues = columnIssues;
-
-                    backlogPromise = $http({
-                        method: 'put',
-                        url: 'https://api.waffle.io/' + project.name + '/columns/' + backlogColumn._id,
-                        params: {
-                            access_token: user.accessToken
-                        },
-                        data: updatedBacklogColumn
-                    })
-
-                    readyPromise = $http({
-                        method: 'put',
-                        url: 'https://api.waffle.io/' + project.name + '/columns/' + readyColumn._id,
-                        params: {
-                            access_token: user.accessToken
-                        },
-                        data: updatedReadyColumn
-                    })
-
-                    return $q.all([backlogPromise, readyPromise]);
-
-                })
             })
         }
 
