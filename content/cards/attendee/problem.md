@@ -13,4 +13,4 @@ Choose one of these two formats, and write your problem on a stickie.
 - I believe `[type of people]` experience `[type of problem]` when doing `[type of task]`
 - I believe `[type of people]` experience `[type of problem]` because of `[limit or constraint]`
 
-You can have more than problem statement, but no more than 3.
+You can have more than 1 problem statement, but no more than 3.
