@@ -1,4 +1,4 @@
-## This is how to pitch.
+## How to Pitch
 
 ### 1. The Hook (30-60 seconds)
 
