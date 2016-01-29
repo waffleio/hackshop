@@ -7,12 +7,13 @@ Fill in Box 3, the "Unique Value Proposition."
 #### What is a UVP? 
 Your unique value proposition is the promise you're making to your customer that's compelling enough for them to jump on board.
 
-There are a couple of ways you can think ae way to think about it: 
+#### Writing a UVP
+Here are two suggested formats: 
 
-1) Ask yourself: "If I solve this problem (Box 1) `[by doing this]` for my customer (Box 2), is that compelling?" 
+1) Ask yourself: "If I solve *the problem* `[by doing this]` for *my customer*, is that compelling?" 
 
-Whatever the `[by doing this]` is the Unique Value Proposition you're proposing.
+Whatever you substitute in for `[by doing this]` is the Unique Value Proposition you're proposing.
 
 2) Complete the statement: "I can promise [the customer in Box 1] who faces [the problem in Box 2] that I can give them [unique value proposition in Box 3]."
 
-Don't forget to fill out the `High Level Concept` -- a clear way to describe who you are. For Uber, this would be "Order a taxi with your phone." It can also be an 'x for y' concept like "Instagram for Pet Lovers."
+Lastly, don't forget to fill out the `High Level Concept`! This serves as a clear way to describe who you are. For Uber, this would be "Order a taxi with your phone." It can also be an 'x for y' concept like "Instagram for Pet Lovers."
