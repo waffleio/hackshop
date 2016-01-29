@@ -12,7 +12,7 @@ Here are two suggested formats:
 
 1) Ask yourself: "If I solve *the problem* `[by doing this]` for *my customer*, is that compelling?" 
 
-Whatever you substitute in for `[by doing this]` is the Unique Value Proposition you're proposing.
+When you can substitute `[by doing this]` with something compelling, that's the Unique Value Proposition you're proposing.
 
 2) Complete the statement: "I can promise [the customer in Box 1] who faces [the problem in Box 2] that I can give them [unique value proposition in Box 3]."
 
