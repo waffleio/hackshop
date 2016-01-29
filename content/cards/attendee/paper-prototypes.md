@@ -1,11 +1,13 @@
 ### Paper Prototypes
 
-You should have several ideas from your brainstorming session. Now, take one idea each (can be a group of ideas that were similar), and spend 5 minutes building a paper prototype.
+You should have several ideas from your brainstorming session. 
+- [ ] Group any similar ideas together.
+- [ ] Take one idea (or group of ideas) per person and spend [5 minutes](https://www.google.com/#q=timer) building a paper prototype.
 
 #### How to build a paper prototype
 
-It's literally using a piece of paper and a sharpie to draw what you think the solution is. 
+It's simple! All you need is a piece of paper and something to write with to draw out your solution. 
 
-No one expects it to be pretty, don't worry! Add as much detail as you can to get across how it might look and work.
+No one expects it to be pretty, don't worry! Add as much detail as you can around how your solution might look or work.
 
-![Paper prototype](https://media0.giphy.com/media/Dphawx0DmeHQI/200.gif)
+![paperprototype](https://cloud.githubusercontent.com/assets/100216/12632529/f30acade-c515-11e5-9629-ddb0d8dcfa80.gif)
