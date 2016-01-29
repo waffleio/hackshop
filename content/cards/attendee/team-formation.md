@@ -14,7 +14,7 @@ Spend a few minutes asking these questions:
   - Share a bit of your experience and skills
 
 - Set working agreements
-  - What agreements do you as a team want to make for the time you are spending together?
+  - What agreements do you, as a team, want to make for the time you are spending together?
   - Suggestions:
     - Show Up On Time: Agree on when you'll meet.
     - "Art of the Possible" - no idea is stupid, let's consider everything.
