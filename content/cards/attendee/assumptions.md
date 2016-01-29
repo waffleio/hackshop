@@ -8,4 +8,4 @@ So far we've made a bunch of guesses. What problems *we* think exist, what custo
 
 Before moving on, we need to test those assumptions with some potential customers.
 
-- [ ] Spend [1 hour](https://www.google.com/#q=timer) trying to find people who fit your customer segment and talk to them. Call your friends, find people on twitter, even pick up the phone and call businesses. The more people you can talk to the better!
+- [ ] Spend [1 hour](https://www.google.com/#q=timer) trying to find people who fit your customer segment and talk to them. Call your friends, find people on twitter, even pick up the phone and call businesses. The more people you can talk to, the better!
