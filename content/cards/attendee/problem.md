@@ -13,4 +13,7 @@ Choose one of these two formats, and write down your problem:
 
 You can have more than one problem statement, but no more than 3. 
 
+#### Identify existing alternatives 
+Take time to discuss as a group how people solve this problem today. Document all of the existing ways people solve the problem you want to solve.
+
 ![leancanvas-box1](https://cloud.githubusercontent.com/assets/100216/12663467/b887dd18-c5e5-11e5-9ac9-06aa2736118f.png)
