@@ -1,3 +1,7 @@
 ### Recruit Stakeholders
 
-Civic hackathons work best when focused on a specific problem set. The best way to highlight these problems is to bring in a subject matter expert who deals with the problem on an everyday basis. What to do a hackathon about crime? Better call the police department. Want to do something around housing? Recruit somebody from the local housing authority or somebody who runs a shelter. When trying to think about the needs and challenge of the front line, there’s no substitute for somebody who actually works in the front line to speak at your event.
+Now that we've decided what problem(s) to focus on (#1), it's time to recruit stakeholders and SME's to help us better understand the problem context. 
+
+- [ ] Find and recruit 2-3 subject matter experts who deal with your problem context on a daily basis
+- [ ] Invite these SME's to be a part of crafting problem statements in advance or adding context to your problem set
+- [ ] Invite SME's to participate in the event, either through speaking, joining teams, judging, or giving feedback 

@@ -1,10 +1,10 @@
 ### Recruit Sponsors
 
-There are a number of costs that are associated with running a hackathon including:
+There are a number of costs that are associated with running a hackathon including food, supplies, venue, and volunteers' time. Finding sponsors to help offset these costs (and to engage in your event) is important and should be started early.
 
-Food (We like deep dish)
-Supplies (Pens, markers, paper boards, power strips)
-Venue
-Your time (Even if you volunteer, you’re still donating your time)
+- [ ] Reach out to local businesses, community foundations, and startup groups 
+- [ ] Look for in-kind donations such as venue, food, and use of software platforms or hosted space
 
-A variety of sponsors can help defray the cost of running your event. Reaching out to local businesses, community foundations, and startup groups is a great way to start. You can also get in-kind donations such as the use of the venue, food, and use of software platforms and hosted space.
+Optional, but helpful: 
+- [ ] Create a sponsorship packet describing your event with different levels of sponsorship, including options for in-kind donations 
+- [ ] If your event costs are particularly high, dedicate a single person to pursuing sponsorship for the event

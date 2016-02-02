@@ -1,9 +1,6 @@
 ### Provide Pre-Event Resources
 
-You also shouldn’t wait until the day of the event to provide your participants with resources. 
+Don't wait until the day of the event to provide your participants with resources! Hackathons may have challenge components, but that doesn’t mean everyone absolutely has to start from scratch.
 
-By providing a resource list ahead of time it helps get participants better prepare for the event. 
-
-Hackathons may have challenge components, but that doesn’t mean everyone absolutely has to start from scratch.
-
-Good examples of pre-event resources can be  user stories, data sets, and contact information for subject matter experts who have agreed to coach participants.
+- [ ] Create a resource list ahead of time to prepare participants for the event. Examples include user stories, data sets, problem statements, and contact information from SME's who have agreed to participate.
+- [ ] Make these resources accessible to registrants on your event website, via email, or both.
