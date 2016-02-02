@@ -1,4 +1,5 @@
 ### Order Food
+*Hackers must be fed!*
 
 - [ ] Order a light breakfast, lunch, and dinner (if applicable) for each day of the event
 - [ ] Check if caterer provides water and refreshment options. If not, purchase separately 
