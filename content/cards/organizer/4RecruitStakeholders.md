@@ -1,6 +1,7 @@
 ### Recruit Stakeholders
 
-Hackathons work best when focused on a specific problem set. Want to do a hackathon about crime? Better call the police department. Want to do something around housing? Recruit somebody from the local housing authority or somebody who runs a shelter. When trying to think about the needs and challenges of the front line, there’s no substitute for somebody who actually works in that space to speak at your event and to help you identify the right problems to be solved. 
+Now that we've decided what problem(s) to focus on (#1), it's time to recruit stakeholders and SME's to help us better understand the problem context. 
 
-- [ ] Decide on one or two themes for your event
-- [ ] Bring in 2-3 subject matter experts who deal with the problems within the context of your theme(s) on a daily basis
+- [ ] Find and recruit 2-3 subject matter experts who deal with your problem context on a daily basis
+- [ ] Invite these SME's to be a part of crafting problem statements in advance or adding context to your problem set
+- [ ] Invite SME's to participate in the event, either through speaking, joining teams, judging, or giving feedback 
