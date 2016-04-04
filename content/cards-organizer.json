@@ -1,0 +1,102 @@
+[
+    {
+        "title": "First, Focus on the Problem",
+        "file": "1focusonproblem.md",
+        "labels": ["2 months before", "ready"]
+    },
+    {
+        "title": "Develop an Agenda",
+        "file": "2DevelopAnAgenda.md",
+        "labels": ["2 months before", "ready"]
+    },
+    {
+        "title": "Find a Venue",
+        "file": "3FindAVenue.md",
+        "labels": ["2 months before", "ready"]
+    },
+    {
+        "title": "Recruit Stakeholders",
+        "file": "4RecruitStakeholders.md",
+        "labels": ["2 months before", "ready"]
+    },
+    {
+        "title": "Recruit Participants",
+        "file": "5RecruitParticipants.md",
+        "labels": ["2 months before", "ready"]
+    },
+    {
+        "title": "Recruit Sponsors",
+        "file": "6recruitsponsors.md",
+        "labels": ["2 months before"]
+    },
+    {
+        "title": "Provide Pre-Event Resources",
+        "file": "8ProvidePre-EventResources.md",
+        "labels": ["1 month before"]
+    },
+    {
+        "title": "Order Food",
+        "file": "9OrderFood.md",
+        "labels": ["2 weeks before"]
+    },
+    {
+        "title": "Reach Out to the Press",
+        "file": "10ReachOutToPress.md",
+        "labels": ["1 week before"]
+    },
+    {
+        "title": "Setup your Social Media",
+        "file": "11SetupSocialMedia.md",
+        "labels": ["1 month before"]
+    },
+    {
+        "title": "Check AV",
+        "file": "12CheckAV.md",
+        "labels": ["1 week before"]
+    },
+    {
+        "title": "Prepare Name Tags",
+        "file": "13NameTags.md",
+        "labels": ["1 day before"]
+    },
+    {
+        "title": "Setup Chairs and Tables",
+        "file": "14SetupChairsTables.md",
+        "labels": ["2 hours before"]
+    },
+    {
+        "title": "Give Security a List of Names",
+        "file": "15GiveSecurityListofNames.md",
+        "labels": ["1 day before"]
+    },
+    {
+        "title": "Send Reminders to Attendees",
+        "file": "16SendReminders.md",
+        "labels": ["1 day before"]
+    },
+    {
+        "title": "Get a Good Night's Rest",
+        "file": "18Sleep.md",
+        "labels": ["1 day before"]
+    },
+    {
+        "title": "Put Signs Out",
+        "file": "19PutSignsOut.md",
+        "labels": ["2 hours before"]
+    },
+    {
+        "title": "Take Pictures and Tweet!",
+        "file": "20TakePicturesandTweet.md",
+        "labels": ["during"]
+    },
+    {
+        "title": "Thank You Notes",
+        "file": "21ThankYouNotes.md",
+        "labels": ["2 days after"]
+    },
+    {
+        "title": "Blog About the Event",
+        "file": "22BlogAboutTheEvent.md",
+        "labels": ["1 day after"]
+    }
+]

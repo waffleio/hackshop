@@ -6,17 +6,18 @@
         <img class="logo" src="images/logo-CfDx900.png" alt="Code for Denver" />
         <h1>Project Bootstrapper</h1>
         <br>
-        <a href="#steps" class="btn btn-light btn-lg">Create New Project</a>
+        <a href="#about" class="btn btn-light btn-lg" ng-click="attendee=true; organizer=false;">Create New Project</a>
+        <a href="#about" class="btn btn-light btn-lg" ng-click="attendee=false; organizer=true;">Create New Event Plan</a>
     </div>
 </header>
 
-<!-- Create -->
-<section id="create" class="about">
+<!-- About -->
+<section id="about" class="about" ng-if="attendee">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Let us help you structure your weekend.</h2>
-                <p class="lead">We'll build you a board in Waffle.io with cards for each action you should do to be successful this weekend.</p>
+                <h2>Create a new Code for Denver project</h2>
+                <p class="lead">We'll build you a new repo and waffle board with cards to help guide you through starting the project.</p>
             </div>
 
             <div class="col-lg-12 text-center">
@@ -30,11 +31,11 @@
 </section>
 
 <!-- Steps -->
-<section id="steps" class="steps bg-primary" ng-controller="StepsController as steps">
+<section id="steps" class="steps bg-primary" ng-controller="StepsController as steps" ng-if="attendee">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Want to give it a shot? Do these 2 steps, it takes 60 seconds.</h2>
+                <h2>Do these 2 steps to create a new project</h2>
                 <div class="row">
                     <ul class="list-group">
                         <li class="list-group-item">
@@ -76,6 +77,74 @@
         <!-- /.row -->
     </div>
 </section>
+
+<!-- About -->
+<section id="about" class="about" ng-if="organizer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>We'll guide you through preparing for your event.</h2>
+                <p class="lead">We'll build you a board in Waffle.io with cards for each step you should take to prepare for and facilitate an event.</p>
+            </div>
+
+            <div class="col-lg-12 text-center">
+                <img src="images/organizer-board.png"/>
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+
+<!-- Steps -->
+<section id="steps" class="steps bg-primary" ng-controller="StepsController as steps" ng-if="organizer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>It's just 2 steps to get started.</h2>
+                <div class="row">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <h3 class="list-title">1. Login/Signup for Waffle</h3>
+                            <i class="fa fa-check-circle-o checkmark" ng-show="steps.session()"></i>
+                            <div class="list-content">
+                                <div ng-show="steps.session()" class="welcome-text">Hi {{steps.session().username}}, now onto Step 2!</div>
+                                <div ng-hide="steps.session()">
+                                    <a class="btn btn-primary btn-lg" href="/auth/waffle" target="_self" role="button">Login/Signup for Waffle</a>
+                                    <span class="login-text">The project bootstrapper will request permission to access your Waffle account.</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" ng-class="{disabled: !steps.session()}">
+                            <h3 class="list-title">2. Create your Event</h3>
+                            <i class="fa fa-check-circle-o checkmark project-checkmark" ng-show="steps.projectCreated"></i>
+                            <div class="list-content" ng-show="steps.session()">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="project-name" class="project-label">{{steps.session().username}} /</label>
+                                        <input type="text" class="form-control" id="project-name" placeholder="name your project" ng-model="name">
+                                        <button class="btn btn-success create-btn" ng-click="steps.createProject({name: name, type: 'organizer'})" ng-class="{disabled: steps.loading}">Create my event board</button>
+                                        <i class="fa fa-spinner loading-spinner" ng-show="steps.loading"></i>
+                                        <span class="project-error error" ng-show="steps.failure">Uh oh, your event board couldn't be created.<pre>{{steps.failure | json}}</pre></span>
+                                    </div>
+                                </form>
+                                <p class="project-text">Upon project creation, we will create a GitHub repo and a Waffle project with the name you choose. Then will autopopulate your board with issues.</p>
+                                <div class="project-success" ng-show="steps.projectCreated">
+                                    <h3>Woohoo! Your Organizer Guide has been created at <a href="https://waffle.io/{{steps.project.name}}">https://waffle.io/{{steps.project.name}}</a></h3>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+
 
 <!-- Footer -->
 <footer>
