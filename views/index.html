@@ -44,12 +44,12 @@
                                 <div ng-show="steps.session()" class="welcome-text">Hi {{steps.session().username}}, now onto Step 2!</div>
                                 <div ng-hide="steps.session()">
                                     <a class="btn btn-primary btn-lg" href="/auth/waffle" target="_self" role="button">Login/Signup for Waffle</a>
-                                    <span class="login-text">Hackshop will request permission to access your Waffle account.</span>
+                                    <span class="login-text">The project bootstrapper will request permission to access your Waffle account.</span>
                                 </div>
                             </div>
                         </li>
                         <li class="list-group-item" ng-class="{disabled: !steps.session()}">
-                            <h3 class="list-title">2. Create your Hackshop Project</h3>
+                            <h3 class="list-title">2. Create your new Code for Denver project</h3>
                             <i class="fa fa-check-circle-o checkmark project-checkmark" ng-show="steps.projectCreated"></i>
                             <div class="list-content" ng-show="steps.session()">
                                 <form class="form-inline">
@@ -63,7 +63,7 @@
                                 </form>
                                 <p class="project-text">Upon project creation, we will create a GitHub repo and a Waffle project with the name you choose. Then will autopopulate your board with issues.</p>
                                 <div class="project-success" ng-show="steps.projectCreated">
-                                    <h3>Woohoo! Your Hackshop Project has been created at <a href="https://waffle.io/{{steps.project.name}}">https://waffle.io/{{steps.project.name}}</a></h3>
+                                    <h3>Woohoo! Your new Code for Denver project has been created at <a href="https://waffle.io/{{steps.project.name}}">https://waffle.io/{{steps.project.name}}</a></h3>
                                 </div>
                             </div>
                         </li>
@@ -82,15 +82,15 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
-                <h4><a href="https://github.com/waffleio/hackshop">An open source project of Waffle.io</a></h4>
+                <h4><a href="https://github.com/waffleio/hackshop">An open source project forked from Waffle.io's Hackshop</a></h4>
 
                 <br>
                 <ul class="list-inline">
                     <li>
-                        <a href="https://github.com/waffleio/hackshop"><i class="fa fa-github fa-fw fa-3x"></i></a>
+                        <a href="https://github.com/codefordenver/project-bootstrapper"><i class="fa fa-github fa-fw fa-3x"></i></a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/waffleio"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        <a href="https://twitter.com/codefordenver"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
                     </li>
                 </ul>
                 <hr class="small">

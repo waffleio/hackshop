@@ -64,9 +64,9 @@ angular.module('hackshop', [])
                     access_token: accessToken
                 },
                 data: {
-                    name: name || 'hackshop',
-                    description: 'Waffle Hackshop: a board in Waffle.io with cards for each action you should do to kickoff a project.',
-                    homepage: 'https://hackshop.waffle.io'
+                    name: name || 'cfd-new',
+                    description: 'New Code for Denver Project',
+                    homepage: ''
                 }
             })
             .then(function(response){
@@ -92,7 +92,7 @@ angular.module('hackshop', [])
                         access_token: accessToken
                     },
                     data: {
-                        message: 'Creating README with hackshop instructions',
+                        message: 'Creating README for project',
                         content: content,
                         committer: {
                             name: 'waffle-iron',
