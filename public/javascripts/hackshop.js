@@ -29,6 +29,9 @@ angular.module('hackshop', [])
                     .then(function(){
                         return me.createReadme(repo, githubAccessToken);
                     })
+                    .then(function() {
+                        return me.createDefaultFiles(repo, githubAccessToken);
+                    })
                     .then(function(){
                         return me.createWaffleProject(repo)
                         .then(function(project){
@@ -83,7 +86,7 @@ angular.module('hackshop', [])
                 }
             })
             .then(function(response){
-                content = response.data;
+                var content = response.data;
 
                 return $http({
                     url: repo.url + '/contents/README.md',
@@ -102,6 +105,39 @@ angular.module('hackshop', [])
 
                 })
             })
+        }
+
+        this.createDefaultFiles = function(repo, accessToken){
+
+            return $http.get('/contents/default-files')
+            .then(function(response){
+                var fileData = response.data;
+
+                var promise = $q.when(true);
+
+                _.each(fileData, function(file){
+                    promise = promise.then(function(){
+                        return $http({
+                            method: 'put',
+                            url: repo.url + '/contents/' + file.name,
+                            params: {
+                                access_token: accessToken
+                            },
+                            data: {
+                                message: 'Default Code for Denver ' + file.name,
+                                content: file.content,
+                                committer: {
+                                    // TODO: Update to not use the waffle-iron for our commits
+                                    name: 'waffle-iron',
+                                    email: 'iron@waffle.io'
+                                }
+                            }
+                        });
+                    });
+                });
+
+                return promise;
+            });
         }
 
         this.createWaffleProject = function(repo){
