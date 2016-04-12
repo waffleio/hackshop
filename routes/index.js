@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     user.credentials = req.user._json.credentials;
   }
   res.render('index', {
-    title: 'Hackshop | Waffle.io',
+    title: 'New Project | Code for Denver',
     session: user
   });
 });

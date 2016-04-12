@@ -12,6 +12,7 @@ router.get('/readme', function(req, res, next){
 
         readme = data.toString();
         readme = readme.replace(/:owner\/:repo/g, req.query.repo);
+        readme = readme.replace(/:repo/g, req.query.repo.split('/')[1]);
 
         base64 = new Buffer(readme).toString('base64');
         return res.send(base64);

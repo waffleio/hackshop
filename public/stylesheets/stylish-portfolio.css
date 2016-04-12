@@ -70,13 +70,7 @@ hr.small {
     position: relative;
     width: 100%;
     height: 100%;
-
-    /*
-      Credit: Nathania Johnson, "Raleigh skyline"
-      Modified: Cropped bottom.
-      https://www.flickr.com/photos/14079872@N00/8504987159/in/photolist-bbmA6K-c2QESQ-tKEt1c-aQ1f96-aQ1frX-aQ1aHv-aQ1awX-aQ1aBZ-aQ1fcr-aQ1fnP-sbx5Pt-b51kfi-9NbXEb-5QhuPM-dXyhnD-dXDYg7-awBig4-etyfnL-awBi8H-9eHRax-dXysR2-b9uq32-8SpUBn-dXG5Xb-mtjCpD-bbmA6z-9SxHLe-hrx3A-hrx3B-dXDXDf-dXygSD-b9uoFT-dXDXfw-9SAGww-bLquCX-8EbwTR-5QmLqJ-5QmLaS-hrx3C-ety27J-gjm9Vk-hrzeA-hrDwX-hrDwY-hrzez
-    */
-    background: url(../images/raleigh-skyline-top.jpg) no-repeat center center scroll;
+    background: url(../images/denver-skyline.jpg) no-repeat center center scroll;
 
 
     -webkit-background-size: cover;
@@ -86,7 +80,11 @@ hr.small {
 }
 
 .header h1 {
-    margin-top: -100px;
+    color: white;
+}
+
+.header .logo {
+  margin-top: -100px;
 }
 
 /* About */

@@ -1,9 +1,10 @@
 {
-  "name": "hackshop",
+  "name": "project-bootstrapper",
   "version": "0.0.0",
-  "homepage": "https://github.com/waffleio/hackshop",
+  "homepage": "https://github.com/codefordenver/project-bootstrapper",
   "authors": [
-    "Andrew Homeyer <homeyer@gmail.com>"
+    "Andrew Homeyer <homeyer@gmail.com>",
+    "Willy Douglas <willygdouglas@gmail.com>"
   ],
   "moduleType": [
     "globals"
