@@ -8,3 +8,5 @@ Be sure to put the product in front of them to how they use it, and incorporate 
 This cycle of refining after demoing should go a long way towards injecting life into the project. That should translate into the customer getting a lot of value from our efforts!
 
 For more information on UX research, see [this presentation](https://docs.google.com/presentation/d/1GKp98UVZXyxo2fjeOfV87TbJb8Z4zF7MozZ4ILtOO_k/edit)  given at one of our Code for Denver Meetups.
+
+Copyright 2016 CA, Inc.
