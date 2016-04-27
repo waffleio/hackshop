@@ -55,7 +55,11 @@
                             <div class="list-content" ng-show="steps.session()">
                                 <form class="form-inline">
                                     <div class="form-group">
-                                        <label for="project-name" class="project-label">{{steps.session().username}} /</label>
+                                        <select class="form-control" ng-model="selectedOwner">
+                                            <option value="codefordenver">codefordenver</option>
+                                            <option value="personal">{{steps.session().username}}</option>
+                                        </select>
+                                        <span>/</span>
                                         <input type="text" class="form-control" id="project-name" placeholder="name your project" ng-model="name">
                                         <button class="btn btn-success create-btn" ng-click="steps.createProject({name: name, type: 'attendee'})" ng-class="{disabled: steps.loading}">Create my project</button>
                                         <i class="fa fa-spinner loading-spinner" ng-show="steps.loading"></i>
@@ -122,7 +126,11 @@
                             <div class="list-content" ng-show="steps.session()">
                                 <form class="form-inline">
                                     <div class="form-group">
-                                        <label for="project-name" class="project-label">{{steps.session().username}} /</label>
+                                        <select class="form-control" ng-model="selectedOwner">
+                                            <option value="codefordenver">codefordenver</option>
+                                            <option value="personal">{{steps.session().username}}</option>
+                                        </select>
+                                        <span>/</span>
                                         <input type="text" class="form-control" id="project-name" placeholder="name your project" ng-model="name">
                                         <button class="btn btn-success create-btn" ng-click="steps.createProject({name: name, type: 'organizer'})" ng-class="{disabled: steps.loading}">Create my event board</button>
                                         <i class="fa fa-spinner loading-spinner" ng-show="steps.loading"></i>

@@ -1,10 +1,13 @@
 angular.module('hackshop', [])
 
 .controller('StepsController', [
+    '$scope',
     '$window',
     '$http',
     '$q',
-    function($window, $http, $q){
+    function($scope, $window, $http, $q){
+
+        $scope.selectedOwner = 'codefordenver';
 
         this.session = function(){
             return $window.Application.session;
@@ -59,9 +62,16 @@ angular.module('hackshop', [])
         this.createRepo = function(name, accessToken){
             var user = this.session();
             var me = this;
+            var apiEndpoint;
+
+            if ($scope.selectedOwner === 'personal') {
+              apiEndpoint = 'https://api.github.com/user/repos';
+            } else {
+              apiEndpoint = 'https://api.github.com/orgs/' + $scope.selectedOwner + '/repos';
+            }
 
             return $http({
-                url: 'https://api.github.com/user/repos',
+                url: apiEndpoint,
                 method: 'post',
                 params: {
                     access_token: accessToken
