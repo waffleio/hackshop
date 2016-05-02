@@ -5,8 +5,13 @@
         "labels": ["sprint 1", "ready"]
     },
     {
-        "title": "What Problem Is Worth Solving?",
+        "title": "Is the Problem Worth Solving?",
         "file": "problem.md",
+        "labels": ["sprint 1", "ready"]
+    },
+    {
+        "title": "Does this Project Already Exist?",
+        "file": "existing-projects.md",
         "labels": ["sprint 1", "ready"]
     },
     {
@@ -15,9 +20,14 @@
         "labels": ["sprint 1", "ready"]
     },
     {
-        "title": "What Makes You Different?",
+        "title": "Research Potential Partners",
+        "file": "Research-partners.md",
+        "labels": ["sprint 2"]
+    },
+    {
+        "title": "What Makes Your Solution Different?",
         "file": "promise.md",
-        "labels": ["sprint 1", "ready"]
+        "labels": ["sprint 2"]
     },
     {
         "title": "Brainstorm solutions",
@@ -32,12 +42,12 @@
     {
         "title": "Pick a Solution",
         "file": "convergence.md",
-        "labels": ["sprint 2"]
+        "labels": ["sprint 3"]
     },
     {
         "title": "Test Your Guesses",
         "file": "assumptions.md",
-        "labels": ["sprint 2"]
+        "labels": ["sprint 3"]
     },
     {
         "title": "Pivot or Persevere",
@@ -50,13 +60,18 @@
         "labels": ["sprint 3"]
     },
     {
-        "title": "Build!",
-        "file": "build.md",
+        "title": "Pitch for Active Development",
+        "file": "pitch-for-active-dev.md",
         "labels": ["sprint 4"]
     },
     {
-        "title": "Pitch Practice",
-        "file": "pitch.md",
+        "title": "Build!",
+        "file": "build.md",
+        "labels": ["sprint 5"]
+    },
+    {
+        "title": "Test with Users",
+        "file": "test-users-card.md",
         "labels": ["sprint 5"]
     }
 ]
