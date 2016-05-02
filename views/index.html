@@ -61,7 +61,7 @@
                                         </select>
                                         <span>/</span>
                                         <input type="text" class="form-control" id="project-name" placeholder="name your project" ng-model="name">
-                                        <button class="btn btn-success create-btn" ng-click="steps.createProject({name: name, type: 'attendee'})" ng-class="{disabled: steps.loading}">Create my project</button>
+                                        <button class="btn btn-success create-btn" ng-click="steps.createProject({name: name, type: 'project'})" ng-class="{disabled: steps.loading}">Create my project</button>
                                         <i class="fa fa-spinner loading-spinner" ng-show="steps.loading"></i>
                                         <span class="project-error error" ng-show="steps.failure">Uh oh, your project couldn't be created.<pre>{{steps.failure | json}}</pre></span>
                                     </div>
@@ -132,7 +132,7 @@
                                         </select>
                                         <span>/</span>
                                         <input type="text" class="form-control" id="project-name" placeholder="name your project" ng-model="name">
-                                        <button class="btn btn-success create-btn" ng-click="steps.createProject({name: name, type: 'organizer'})" ng-class="{disabled: steps.loading}">Create my event board</button>
+                                        <button class="btn btn-success create-btn" ng-click="steps.createProject({name: name, type: 'event'})" ng-class="{disabled: steps.loading}">Create my event board</button>
                                         <i class="fa fa-spinner loading-spinner" ng-show="steps.loading"></i>
                                         <span class="project-error error" ng-show="steps.failure">Uh oh, your event board couldn't be created.<pre>{{steps.failure | json}}</pre></span>
                                     </div>
