@@ -5,112 +5,112 @@ var path = require('path');
 var _ = require('lodash');
 
 function readArrayOfFilesInDir(dir, filenames, cb) {
-    if (!_.isArray(filenames)) {
-        cb(new TypeError('filenames must be an array'));
-    }
+  if (!_.isArray(filenames)) {
+    cb(new TypeError('filenames must be an array'));
+  }
 
-    var filesLeftToRead = filenames.length;
-    var files = {};
+  var filesLeftToRead = filenames.length;
+  var files = {};
 
-    filenames.forEach(function(filename) {
-        fs.readFile(path.join(dir, filename), 'utf8', function(err, content) {
-            if (err) {
-                return cb(err);
-            }
+  filenames.forEach(function(filename) {
+    fs.readFile(path.join(dir, filename), 'utf8', function(err, content) {
+      if (err) {
+        return cb(err);
+      }
 
-            files[filename] = content;
-            filesLeftToRead--;
+      files[filename] = content;
+      filesLeftToRead--;
 
-            if (!filesLeftToRead) {
-                cb(null, files);
-            }
-        });
+      if (!filesLeftToRead) {
+        cb(null, files);
+      }
     });
+  });
 }
 
 function readAllFilesInDir(dir, cb) {
-    fs.readdir(dir, function(err, filenames) {
-        if (err) {
-            return cb(err);
-        }
+  fs.readdir(dir, function(err, filenames) {
+    if (err) {
+      return cb(err);
+    }
 
-        readArrayOfFilesInDir(dir, filenames, cb);
-    });
+    readArrayOfFilesInDir(dir, filenames, cb);
+  });
 }
 
 var defaultFiles;
 
 function formatDefaultFiles(defaultFilesObj) {
-    return _.map(defaultFilesObj, function(val, key) {
-        return {
-            name: key,
-            content: new Buffer(val).toString('base64')
-        };
-    });
+  return _.map(defaultFilesObj, function(val, key) {
+    return {
+      name: key,
+      content: new Buffer(val).toString('base64')
+    };
+  });
 }
 
 function cacheDefaultFiles(cb) {
-    readAllFilesInDir(path.join(__dirname, '../content/default-files'), function(err, files) {
-        if (err) {
-          cb(err);
-        }
+  readAllFilesInDir(path.join(__dirname, '../content/default-files'), function(err, files) {
+    if (err) {
+      cb(err);
+    }
 
-        defaultFiles = formatDefaultFiles(files);
-        cb(null, defaultFiles);
-    });
+    defaultFiles = formatDefaultFiles(files);
+    cb(null, defaultFiles);
+  });
 }
 
 cacheDefaultFiles(_.noop);
 
 router.get('/readme', function(req, res, next){
-    fs.readFile(path.join(__dirname, '../', 'content', 'README-template.md'), function(err, data){
-        if(err){
-            return next(err);
-        }
+  fs.readFile(path.join(__dirname, '../', 'content', 'README-template.md'), function(err, data){
+    if(err){
+      return next(err);
+    }
 
-        readme = data.toString();
-        readme = readme.replace(/:owner\/:repo/g, req.query.repo);
-        readme = readme.replace(/:repo/g, req.query.repo.split('/')[1]);
+    var readme = data.toString();
+    readme = readme.replace(/:owner\/:repo/g, req.query.repo);
+    readme = readme.replace(/:repo/g, req.query.repo.split('/')[1]);
 
-        base64 = new Buffer(readme).toString('base64');
-        return res.send(base64);
-    });
+    var base64 = new Buffer(readme).toString('base64');
+    return res.send(base64);
+  });
 });
 
 router.get('/cards', function(req, res, next){
   var type = req.query.type;
 
   fs.readFile(path.join(__dirname, '../', 'content', 'cards-' + type + '.json'), 'utf8', function(err, data){
-      if(err){
-          return next(err);
-      }
+    if(err){
+      return next(err);
+    }
 
-      cardsMetadata = JSON.parse(data);
+    var cardsMetadata = JSON.parse(data);
 
-      cards = _.map(cardsMetadata, function(metadata){
-          return {
-              title: metadata.title,
-              labels: metadata.labels,
-              description: fs.readFileSync(path.join(__dirname, '../', 'content', 'cards', type, metadata.file), 'utf8')
-          }
-      });
+    var cards = _.map(cardsMetadata, function(metadata){
+      return {
+        title: metadata.title,
+        labels: metadata.labels,
+        description: fs.readFileSync(path.join(__dirname, '../', 'content', 'cards', type, metadata.file), 'utf8')
+      };
+    });
 
-      return res.json(cards);
+    return res.json(cards);
   });
 });
 
 router.get('/default-files', function(req, res, next) {
-    if (!defaultFiles) {
-        cacheDefaultFiles(function(err, defaultFiles) {
-            if (err) {
-                next(err);
-            }
+  if (!defaultFiles) {
+    cacheDefaultFiles(function(err, defaultFiles) {
+      if (err) {
+        next(err);
+      }
 
-            res.json(defaultFiles);
-        });
-    } else {
-        res.json(defaultFiles);
-    }
+      res.json(defaultFiles);
+    });
+  } else {
+    res.json(defaultFiles);
+  }
 });
 
 module.exports = router;
