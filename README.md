@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/codefordenver/project-bootstrapper.png?label=ready&title=Ready)](https://waffle.io/codefordenver/project-bootstrapper)
 # Project Bootstrapper
 
 Generates a new repo and pre-populated waffle board for Code for Denver projects and events.
