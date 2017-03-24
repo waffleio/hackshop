@@ -87,15 +87,26 @@ router.get('/cards', function(req, res, next){
 
     var cardsMetadata = JSON.parse(data);
 
-    var cards = _.map(cardsMetadata, function(metadata){
-      return {
-        title: metadata.title,
-        labels: metadata.labels,
-        description: fs.readFileSync(path.join(__dirname, '../', 'content', 'cards', type, metadata.file), 'utf8')
-      };
+    var contentDir = path.join(__dirname, '..', 'content', 'cards', type);
+    var fileNames = cardsMetadata.map(function (metaData) {
+      return metaData.file;
     });
 
-    return res.json(cards);
+    readArrayOfFilesInDir(contentDir, fileNames, function(err, files) {
+      if (err) {
+        next(err);
+      }
+
+      var cards = _.map(cardsMetadata, function(metadata){
+        return {
+          title: metadata.title,
+          labels: metadata.labels,
+          description: files[metadata.file]
+        };
+      });
+
+      res.json(cards);
+    });
   });
 });
 
